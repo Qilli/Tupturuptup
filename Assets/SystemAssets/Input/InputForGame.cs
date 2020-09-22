@@ -19,15 +19,7 @@ public class @InputForGame : IInputActionCollection, IDisposable
             ""id"": ""27011661-c652-4ba1-96c7-6de6295ea828"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""fa4fa2f3-68e3-4719-8446-063645081911"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Look"",
+                    ""name"": ""Cut"",
                     ""type"": ""Value"",
                     ""id"": ""798bd9cc-e93f-4a3c-a2d7-e66105ed44af"",
                     ""expectedControlType"": ""Vector2"",
@@ -35,9 +27,9 @@ public class @InputForGame : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""DrawingStatus"",
                     ""type"": ""Button"",
-                    ""id"": ""2b21d994-6d27-4123-a2cb-9680b0684dd7"",
+                    ""id"": ""2611e036-dc44-4432-98ce-31e5dc8d748f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -46,144 +38,12 @@ public class @InputForGame : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""978bfe49-cc26-4a3d-ab7b-7d7a29327403"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""00ca640b-d935-4593-8157-c05846ea39b3"",
-                    ""path"": ""Dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""e2062cb9-1b15-46a2-838c-2f8d72a0bdd9"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""8180e8bd-4097-4f4e-ab88-4523101a6ce9"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""320bffee-a40b-4347-ac70-c210eb8bc73a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""1c5327b5-f71c-4f60-99c7-4e737386f1d1"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""d2581a9b-1d11-4566-b27d-b92aff5fabbc"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""2e46982e-44cc-431b-9f0b-c11910bf467a"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fcfe95b8-67b9-4526-84b5-5d0bc98d6400"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""77bff152-3580-4b21-b6de-dcd0c7e41164"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1635d3fe-58b6-4ba9-a4e2-f4b964f6b5c8"",
-                    ""path"": ""<XRController>/{Primary2DAxis}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3ea4d645-4504-4529-b061-ab81934c3752"",
-                    ""path"": ""<Joystick>/stick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c1f7a91b-d0fd-4a62-997e-7fb9b69bf235"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
+                    ""action"": ""Cut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -194,7 +54,7 @@ public class @InputForGame : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse;Touch"",
-                    ""action"": ""Look"",
+                    ""action"": ""Cut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -205,274 +65,29 @@ public class @InputForGame : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Look"",
+                    ""action"": ""Cut"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
+                    ""id"": ""645d40fd-120d-4fb4-98f7-3cbf6005f43f"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""DrawingStatus"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""id"": ""16a3e765-091d-412b-aad5-07fb8df69041"",
+                    ""path"": ""<Touchscreen>/press"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Camera"",
-            ""id"": ""d6a460c4-a076-414d-a8b8-bfaf8e1543b4"",
-            ""actions"": [
-                {
-                    ""name"": ""CameraZoom"",
-                    ""type"": ""Button"",
-                    ""id"": ""a5b2327f-49b7-4a76-87c3-e5b00bcb3910"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""PanMouseStatus"",
-                    ""type"": ""Button"",
-                    ""id"": ""cb753b3f-6eef-4861-a9ec-70aaea4e1545"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Pan"",
-                    ""type"": ""Button"",
-                    ""id"": ""5df9437f-8780-4bca-8d5d-ba8f7fcaa4f7"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MouseOffset"",
-                    ""type"": ""Button"",
-                    ""id"": ""9344ea85-ce46-41b2-9cc8-cfdacc87021c"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""562adf96-be89-4d99-b15b-2aac807c089b"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""PanMouseStatus"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""PanMovement"",
-                    ""id"": ""63015606-864a-4451-ab26-832a916a821f"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pan"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""3b78b8cd-92df-418c-b213-bb982a6f945e"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""Pan"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""94276ed5-31df-4d44-950c-15e7f90cd03d"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""Pan"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""3f7d7db3-339e-4a2c-85cd-dd5ebe722d2a"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""Pan"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""a72bcea2-85eb-41ad-8869-8c772a96e1ce"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""Pan"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""84f48c2e-8114-4906-a184-ea2db4a99378"",
-                    ""path"": ""<Mouse>/scroll/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""CameraZoom"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f0a3e010-b12b-418c-8179-964bf4218fca"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""MouseOffset"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""MapInteraction"",
-            ""id"": ""1c900aa6-db01-4c66-9b73-5d2f3463b6f1"",
-            ""actions"": [
-                {
-                    ""name"": ""MouseLeftClick"",
-                    ""type"": ""Button"",
-                    ""id"": ""3e3cd15c-67cf-4b2b-bdf3-062bf1ab47c4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MouseRightClick"",
-                    ""type"": ""Button"",
-                    ""id"": ""c415854c-7d4b-4d0e-8e3d-106b26b66ce4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MousePosition"",
-                    ""type"": ""Button"",
-                    ""id"": ""400bdb50-da97-4c01-94e9-a87975e75c76"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MouseLeftHold"",
-                    ""type"": ""Button"",
-                    ""id"": ""87425598-ecbd-45f9-b7fa-74fb0a9b0b20"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""b08bf101-0c95-4876-abeb-95b0d33049e7"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""MouseLeftClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1d7fc8d0-7f88-4c7a-8874-d545acc2925c"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""MouseRightClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""aec1232d-4a99-451f-ae2b-700a9934040c"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""MousePosition"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d4608e39-ebf1-4ebc-8a49-7c502eb11aa1"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold(duration=0.15)"",
-                    ""processors"": """",
-                    ""groups"": ""Mouse And Keyboard;Keyboard&Mouse"",
-                    ""action"": ""MouseLeftHold"",
+                    ""groups"": ""Touch"",
+                    ""action"": ""DrawingStatus"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1047,21 +662,8 @@ public class @InputForGame : IInputActionCollection, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        // Camera
-        m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
-        m_Camera_CameraZoom = m_Camera.FindAction("CameraZoom", throwIfNotFound: true);
-        m_Camera_PanMouseStatus = m_Camera.FindAction("PanMouseStatus", throwIfNotFound: true);
-        m_Camera_Pan = m_Camera.FindAction("Pan", throwIfNotFound: true);
-        m_Camera_MouseOffset = m_Camera.FindAction("MouseOffset", throwIfNotFound: true);
-        // MapInteraction
-        m_MapInteraction = asset.FindActionMap("MapInteraction", throwIfNotFound: true);
-        m_MapInteraction_MouseLeftClick = m_MapInteraction.FindAction("MouseLeftClick", throwIfNotFound: true);
-        m_MapInteraction_MouseRightClick = m_MapInteraction.FindAction("MouseRightClick", throwIfNotFound: true);
-        m_MapInteraction_MousePosition = m_MapInteraction.FindAction("MousePosition", throwIfNotFound: true);
-        m_MapInteraction_MouseLeftHold = m_MapInteraction.FindAction("MouseLeftHold", throwIfNotFound: true);
+        m_Player_Cut = m_Player.FindAction("Cut", throwIfNotFound: true);
+        m_Player_DrawingStatus = m_Player.FindAction("DrawingStatus", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1124,16 +726,14 @@ public class @InputForGame : IInputActionCollection, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_Cut;
+    private readonly InputAction m_Player_DrawingStatus;
     public struct PlayerActions
     {
         private @InputForGame m_Wrapper;
         public PlayerActions(@InputForGame wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @Cut => m_Wrapper.m_Player_Cut;
+        public InputAction @DrawingStatus => m_Wrapper.m_Player_DrawingStatus;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1143,146 +743,26 @@ public class @InputForGame : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @Cut.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCut;
+                @Cut.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCut;
+                @Cut.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCut;
+                @DrawingStatus.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrawingStatus;
+                @DrawingStatus.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrawingStatus;
+                @DrawingStatus.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrawingStatus;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @Cut.started += instance.OnCut;
+                @Cut.performed += instance.OnCut;
+                @Cut.canceled += instance.OnCut;
+                @DrawingStatus.started += instance.OnDrawingStatus;
+                @DrawingStatus.performed += instance.OnDrawingStatus;
+                @DrawingStatus.canceled += instance.OnDrawingStatus;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-
-    // Camera
-    private readonly InputActionMap m_Camera;
-    private ICameraActions m_CameraActionsCallbackInterface;
-    private readonly InputAction m_Camera_CameraZoom;
-    private readonly InputAction m_Camera_PanMouseStatus;
-    private readonly InputAction m_Camera_Pan;
-    private readonly InputAction m_Camera_MouseOffset;
-    public struct CameraActions
-    {
-        private @InputForGame m_Wrapper;
-        public CameraActions(@InputForGame wrapper) { m_Wrapper = wrapper; }
-        public InputAction @CameraZoom => m_Wrapper.m_Camera_CameraZoom;
-        public InputAction @PanMouseStatus => m_Wrapper.m_Camera_PanMouseStatus;
-        public InputAction @Pan => m_Wrapper.m_Camera_Pan;
-        public InputAction @MouseOffset => m_Wrapper.m_Camera_MouseOffset;
-        public InputActionMap Get() { return m_Wrapper.m_Camera; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(CameraActions set) { return set.Get(); }
-        public void SetCallbacks(ICameraActions instance)
-        {
-            if (m_Wrapper.m_CameraActionsCallbackInterface != null)
-            {
-                @CameraZoom.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnCameraZoom;
-                @CameraZoom.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnCameraZoom;
-                @CameraZoom.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnCameraZoom;
-                @PanMouseStatus.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnPanMouseStatus;
-                @PanMouseStatus.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnPanMouseStatus;
-                @PanMouseStatus.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnPanMouseStatus;
-                @Pan.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnPan;
-                @Pan.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnPan;
-                @Pan.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnPan;
-                @MouseOffset.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnMouseOffset;
-                @MouseOffset.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnMouseOffset;
-                @MouseOffset.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnMouseOffset;
-            }
-            m_Wrapper.m_CameraActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @CameraZoom.started += instance.OnCameraZoom;
-                @CameraZoom.performed += instance.OnCameraZoom;
-                @CameraZoom.canceled += instance.OnCameraZoom;
-                @PanMouseStatus.started += instance.OnPanMouseStatus;
-                @PanMouseStatus.performed += instance.OnPanMouseStatus;
-                @PanMouseStatus.canceled += instance.OnPanMouseStatus;
-                @Pan.started += instance.OnPan;
-                @Pan.performed += instance.OnPan;
-                @Pan.canceled += instance.OnPan;
-                @MouseOffset.started += instance.OnMouseOffset;
-                @MouseOffset.performed += instance.OnMouseOffset;
-                @MouseOffset.canceled += instance.OnMouseOffset;
-            }
-        }
-    }
-    public CameraActions @Camera => new CameraActions(this);
-
-    // MapInteraction
-    private readonly InputActionMap m_MapInteraction;
-    private IMapInteractionActions m_MapInteractionActionsCallbackInterface;
-    private readonly InputAction m_MapInteraction_MouseLeftClick;
-    private readonly InputAction m_MapInteraction_MouseRightClick;
-    private readonly InputAction m_MapInteraction_MousePosition;
-    private readonly InputAction m_MapInteraction_MouseLeftHold;
-    public struct MapInteractionActions
-    {
-        private @InputForGame m_Wrapper;
-        public MapInteractionActions(@InputForGame wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MouseLeftClick => m_Wrapper.m_MapInteraction_MouseLeftClick;
-        public InputAction @MouseRightClick => m_Wrapper.m_MapInteraction_MouseRightClick;
-        public InputAction @MousePosition => m_Wrapper.m_MapInteraction_MousePosition;
-        public InputAction @MouseLeftHold => m_Wrapper.m_MapInteraction_MouseLeftHold;
-        public InputActionMap Get() { return m_Wrapper.m_MapInteraction; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MapInteractionActions set) { return set.Get(); }
-        public void SetCallbacks(IMapInteractionActions instance)
-        {
-            if (m_Wrapper.m_MapInteractionActionsCallbackInterface != null)
-            {
-                @MouseLeftClick.started -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseLeftClick;
-                @MouseLeftClick.performed -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseLeftClick;
-                @MouseLeftClick.canceled -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseLeftClick;
-                @MouseRightClick.started -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseRightClick;
-                @MouseRightClick.performed -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseRightClick;
-                @MouseRightClick.canceled -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseRightClick;
-                @MousePosition.started -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMousePosition;
-                @MousePosition.performed -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMousePosition;
-                @MousePosition.canceled -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMousePosition;
-                @MouseLeftHold.started -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseLeftHold;
-                @MouseLeftHold.performed -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseLeftHold;
-                @MouseLeftHold.canceled -= m_Wrapper.m_MapInteractionActionsCallbackInterface.OnMouseLeftHold;
-            }
-            m_Wrapper.m_MapInteractionActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @MouseLeftClick.started += instance.OnMouseLeftClick;
-                @MouseLeftClick.performed += instance.OnMouseLeftClick;
-                @MouseLeftClick.canceled += instance.OnMouseLeftClick;
-                @MouseRightClick.started += instance.OnMouseRightClick;
-                @MouseRightClick.performed += instance.OnMouseRightClick;
-                @MouseRightClick.canceled += instance.OnMouseRightClick;
-                @MousePosition.started += instance.OnMousePosition;
-                @MousePosition.performed += instance.OnMousePosition;
-                @MousePosition.canceled += instance.OnMousePosition;
-                @MouseLeftHold.started += instance.OnMouseLeftHold;
-                @MouseLeftHold.performed += instance.OnMouseLeftHold;
-                @MouseLeftHold.canceled += instance.OnMouseLeftHold;
-            }
-        }
-    }
-    public MapInteractionActions @MapInteraction => new MapInteractionActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1443,23 +923,8 @@ public class @InputForGame : IInputActionCollection, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
-    }
-    public interface ICameraActions
-    {
-        void OnCameraZoom(InputAction.CallbackContext context);
-        void OnPanMouseStatus(InputAction.CallbackContext context);
-        void OnPan(InputAction.CallbackContext context);
-        void OnMouseOffset(InputAction.CallbackContext context);
-    }
-    public interface IMapInteractionActions
-    {
-        void OnMouseLeftClick(InputAction.CallbackContext context);
-        void OnMouseRightClick(InputAction.CallbackContext context);
-        void OnMousePosition(InputAction.CallbackContext context);
-        void OnMouseLeftHold(InputAction.CallbackContext context);
+        void OnCut(InputAction.CallbackContext context);
+        void OnDrawingStatus(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

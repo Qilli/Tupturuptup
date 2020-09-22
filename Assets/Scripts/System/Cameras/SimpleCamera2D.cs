@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class SimpleCamera2D : BaseObject, InputForGame.ICameraActions
+public class SimpleCamera2D : BaseObject
 {
     [Header("General")]
     public Camera2DSettings settingsCamera;
@@ -53,8 +53,6 @@ public class SimpleCamera2D : BaseObject, InputForGame.ICameraActions
         cameraTransform = usedCamera.transform;
         input = systemInput.Input;
         targetCamSizeOnZoom = settingsCamera.targetCamSizeOnZoom;
-
-        input.Camera.SetCallbacks(this);
 
         currentCameraOrthoTarget = zoom;
         currentCameraTarget = cameraTransform.position;
