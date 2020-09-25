@@ -16,6 +16,12 @@ public class LineCreatorSettings : ScriptableObject
     public float minMagnitudeForMove=2;
     [Tooltip("Minimalna długośc linie dla jednego cięcia(0-100%)")]
     public float minLineSizeForCut=3;
+    [Tooltip("Typ cięcia")]
+    public LineCreatorMode mode = LineCreatorMode.WAIT_TILL_END;
+    [Tooltip("offset od hor/ver ktory wciaz trzyma tam sam kierunek")]
+    public float maxAngleOffset = 12.5f;
+    [Tooltip("max offset kąta przy juz wybranym kierunku")]
+    public float maxAngleSmoothOffset = 30.0f;
     [Header("Debug Draw")]
     public bool randomColor = false;
     public Color lineColor = Color.red;

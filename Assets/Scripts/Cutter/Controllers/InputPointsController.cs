@@ -14,6 +14,7 @@ public class InputPointsController : BaseObject
     public TapStatus tapStatus;
     public LineCreatorController linesController;
     private Vector3 startPoint;
+    private Vector2 currentStart;
 
     public override void init()
     {
@@ -28,13 +29,14 @@ public class InputPointsController : BaseObject
             Vector2 v = context.ReadValue<Vector2>();
             Vector3 mPos= Mouse.current.position.ReadValue();
             //konwertujemy do docelowej rozdziałki
-            Vector2 converted=linesController.creatorSettings.convert(v);
-            //Debug.Log("conveted magnitude:  " + converted.magnitude + " prog: " + linesController.creatorSettings.minMagnitudeForMove);
+            Vector2 converted=linesController.creatorSettings.convert(mPos);
+
             //dajemy tylko punkty z jakimś sensownym offsetem
-            if(converted.magnitude > linesController.creatorSettings.minMagnitudeForMove)
+            if(Vector2.Distance(converted,currentStart) > linesController.creatorSettings.minMagnitudeForMove)
             {
                 //dodajmy punkt   
-                linesController.addNewPoint(mPos, linesController.creatorSettings.convert(mPos));
+                linesController.addNewPoint(mPos, converted);
+                currentStart = converted;
             }
         }
     }
@@ -46,8 +48,9 @@ public class InputPointsController : BaseObject
             tapStatus = TapStatus.ON;
             linesController.startRecord();
             startPoint = Mouse.current.position.ReadValue();
-
+            currentStart = linesController.creatorSettings.convert(startPoint);
             //ustawiamy miejsce tapniecia jako pierwszy punkt   
+            linesController.debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.CONSTANT;
              linesController.addNewPoint(startPoint, linesController.creatorSettings.convert(startPoint));
            
         }

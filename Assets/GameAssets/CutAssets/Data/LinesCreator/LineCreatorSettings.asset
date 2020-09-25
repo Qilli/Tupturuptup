@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: LineCreatorSettings
   m_EditorClassIdentifier: 
   targetResolution: {x: 640, y: 480}
-  minMagnitudeForMove: 2
+  minMagnitudeForMove: 40
   minLineSizeForCut: 20
-  randomColor: 0
+  mode: 0
+  maxAngleOffset: 12.5
+  maxAngleSmoothOffset: 30
+  randomColor: 1
   lineColor: {r: 1, g: 0, b: 0, a: 1}
