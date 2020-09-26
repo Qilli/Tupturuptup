@@ -184,14 +184,37 @@ public class LineCreatorController : BaseObject
             }
         }
 
-
+        //tworzymy linie
+        for(int a=0;a<stopAt-1;++a)
+        {
             Line l = new Line();
-            l.start = usedCamera.ScreenToWorldPoint(points[0]);
-            l.end = usedCamera.ScreenToWorldPoint(points[stopAt]);
+            l.start = usedCamera.ScreenToWorldPoint(points[a]);
+            l.end = usedCamera.ScreenToWorldPoint(points[a+1]);
             lines.Add(l);
-        
-
+        }
+   
         debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.TIME;
         debugLineDrawer.drawTimeLines(lines);
+
+        //używamy stworzonych linii do cięcia na mapie
+        cut(lines);
+    }
+
+    private RaycastHit2D[] hits = new RaycastHit2D[30];
+    private void cut(List<Line> lines)
+    {
+        foreach(Line l in lines)
+        {
+            int res=Physics2D.LinecastNonAlloc(l.start, l.end, hits);
+            for(int a=0;a<res;++a)
+            {
+                CutElemColliderInfo info= hits[a].collider.GetComponent<CutElemColliderInfo>();
+                if(info)
+                {
+                    info.control.tryCut(l);
+                }
+            }
+        }
+        
     }
 }
