@@ -25,6 +25,7 @@ public class LineCreatorController : BaseObject
     public void addNewPoint(Vector2 point, Vector2 convertedPoint)
     {
         Vector3 world = usedCamera.ScreenToWorldPoint(new Vector3(point.x, point.y, usedCamera.nearClipPlane));
+        world.z = -1;
         points.Add(point);
 
         pointsConverted.Add(convertedPoint);
@@ -32,7 +33,6 @@ public class LineCreatorController : BaseObject
         //Debug.Log("before conversion: "+point+"  point: " + usedCamera.ScreenToWorldPoint(new Vector3(point.x, point.y, usedCamera.nearClipPlane)));
         debugLineDrawer.addPoint(world);
 
-        world.z = 0;
         linePoints.Add(world);
         lineDrawer.setPointsForLine(linePoints);
     }
