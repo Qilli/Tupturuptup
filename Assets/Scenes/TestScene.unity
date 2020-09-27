@@ -1221,6 +1221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managers:
   - {fileID: 11400000, guid: 2714c370deb187a42986b4d00b0e7cad, type: 2}
+  - {fileID: 11400000, guid: 843d1df9fdccbbe4596b7deeda55fabe, type: 2}
   isPaused: 0
 --- !u!4 &960891365
 Transform:
@@ -2446,3 +2447,4 @@ MonoBehaviour:
   inited: 0
   lines:
   - {fileID: 1665168395}
+  settings: {fileID: 11400000, guid: adb0443676f2add49b8fbe8e919ae583, type: 2}

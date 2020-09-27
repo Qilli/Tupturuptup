@@ -29,9 +29,17 @@ public class CutElementObject : BaseObject
         if(elemState == ElementState.ACTIVE)
         {
             GameObject pref = objDefinition.getCutPrefabForCut(l.direction);
-            GameObject.Instantiate(pref, Vector3.zero, Quaternion.identity, this.transform);
-            changeElemState(ElementState.EMPTY);
+            GameObject instantiated=GameObject.Instantiate(pref, this.transform.position, Quaternion.identity, this.transform);
+            CutElementFragments fragments = instantiated.GetComponent<CutElementFragments>();
+            fragments.parent = this;
+            changeElemState(ElementState.LOCKED);
         }
+    }
+
+    public void setElemDefinition(CutElement elem)
+    {
+        objDefinition = elem;
+        changeElemState(ElementState.ACTIVE);
     }
 
     public void changeElemState(ElementState state_)
@@ -44,6 +52,10 @@ public class CutElementObject : BaseObject
         else if(state_ == ElementState.ACTIVE)
         {
             elemSprite.sprite = objDefinition.baseStaticVisual;
+        }
+        else if(state_ == ElementState.LOCKED)
+        {
+            elemSprite.sprite = null;
         }
     }
 

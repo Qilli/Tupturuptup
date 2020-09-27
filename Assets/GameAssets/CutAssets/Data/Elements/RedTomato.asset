@@ -14,5 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeElem: 2
   baseStaticVisual: {fileID: 21300000, guid: e1f2e9491f29a9244b980e04a56c099a, type: 3}
-  prefabCut: {fileID: 4140382606595872154, guid: 828efdafae093f749bcb00ff43398d6a,
+  prefabCut_HorizontalRight: {fileID: 4140382606595872154, guid: 828efdafae093f749bcb00ff43398d6a,
+    type: 3}
+  prefabCut_HorizontalLeft: {fileID: 4140382606595872154, guid: 828efdafae093f749bcb00ff43398d6a,
+    type: 3}
+  prefabCut_VerticalUp: {fileID: 4140382606595872154, guid: b898a5e66669ef84e808124b85a51a35,
+    type: 3}
+  prefabCut_VerticalDown: {fileID: 4140382606595872154, guid: b898a5e66669ef84e808124b85a51a35,
+    type: 3}
+  prefabCut_DiagLeftUp: {fileID: 4140382606595872154, guid: a1412bd794fb8be41b5471a826e5c9b0,
+    type: 3}
+  prefabCut_DiagLeftDown: {fileID: 4140382606595872154, guid: a1412bd794fb8be41b5471a826e5c9b0,
+    type: 3}
+  prefabCut_DiagRightUp: {fileID: 4140382606595872154, guid: a1412bd794fb8be41b5471a826e5c9b0,
+    type: 3}
+  prefabCut_DiagRightDown: {fileID: 4140382606595872154, guid: a1412bd794fb8be41b5471a826e5c9b0,
     type: 3}

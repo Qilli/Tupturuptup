@@ -190,6 +190,7 @@ public class LineCreatorController : BaseObject
             Line l = new Line();
             l.start = usedCamera.ScreenToWorldPoint(points[a]);
             l.end = usedCamera.ScreenToWorldPoint(points[a+1]);
+            l.direction = lineDirection;
             lines.Add(l);
         }
    

@@ -11,4 +11,23 @@ public class ElementsLine : BaseObject
     {
         base.init();
     }
+
+    public void randomFillLine(LineCreatorSettings settings)
+    {
+        foreach(CutElementObject obj in lineElements)
+        {
+            obj.setElemDefinition(settings.getRandomElement());
+        }
+    }
+
+    public void randomUpdateLine(LineCreatorSettings settings)
+    {
+        foreach (CutElementObject obj in lineElements)
+        {
+            if (obj.elemState == CutElementObject.ElementState.EMPTY)
+            {
+                obj.setElemDefinition(settings.getRandomElement());
+            }
+        }
+    }
 }

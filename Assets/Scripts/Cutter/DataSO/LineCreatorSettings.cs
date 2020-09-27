@@ -10,6 +10,8 @@ public class LineCreatorSettings : ScriptableObject
         PER_LINE
     }
     [Header("Base")]
+    [Tooltip("Elements")]
+    public CutElement[] elements;
     [Tooltip("Docelowa rozdzielczosc w jakiej sprawdzamy linie")]
     public Vector2Int targetResolution= new Vector2Int(640,480);
     [Tooltip("Minimalna długośc ruchu żeby traktować go jako punkt(0-100%)")]
@@ -25,6 +27,11 @@ public class LineCreatorSettings : ScriptableObject
     [Header("Debug Draw")]
     public bool randomColor = false;
     public Color lineColor = Color.red;
+
+    public CutElement getRandomElement()
+    {
+        return elements[Random.Range(0, elements.Length)];
+    }
 
     public Vector2 convert(Vector2 offset)
     {
