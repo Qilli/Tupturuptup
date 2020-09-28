@@ -21,23 +21,28 @@ public class InputPointsController : BaseObject
         base.init();
     }
 
+    public void onMouseMove(Vector2 m,bool ignoreDistance=false)
+    {
+        Vector2 v = m;
+        Vector3 mPos = Mouse.current.position.ReadValue();
+        //konwertujemy do docelowej rozdziałki
+        Vector2 converted = linesController.creatorSettings.convert(mPos);
+
+        //dajemy tylko punkty z jakimś sensownym offsetem
+        if (Vector2.Distance(converted, currentStart) > linesController.creatorSettings.minMagnitudeForMove || ignoreDistance==true)
+        {
+            //dodajmy punkt   
+            linesController.addNewPoint(mPos, converted);
+            currentStart = converted;
+        }
+    }
 
     public void OnOffset(InputAction.CallbackContext context)
     {
         if (tapStatus == TapStatus.ON)
         {
             Vector2 v = context.ReadValue<Vector2>();
-            Vector3 mPos= Mouse.current.position.ReadValue();
-            //konwertujemy do docelowej rozdziałki
-            Vector2 converted=linesController.creatorSettings.convert(mPos);
-
-            //dajemy tylko punkty z jakimś sensownym offsetem
-            if(Vector2.Distance(converted,currentStart) > linesController.creatorSettings.minMagnitudeForMove)
-            {
-                //dodajmy punkt   
-                linesController.addNewPoint(mPos, converted);
-                currentStart = converted;
-            }
+            onMouseMove(v);
         }
     }
 
@@ -56,6 +61,7 @@ public class InputPointsController : BaseObject
         }
          else if(context.phase == InputActionPhase.Canceled)
         {
+            onMouseMove(Vector2.zero,true);
             tapStatus = TapStatus.OFF;
             linesController.endRecord();
         }

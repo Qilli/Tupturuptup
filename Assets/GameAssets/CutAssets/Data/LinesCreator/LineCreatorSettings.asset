@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 552f24fd7cec4a2469997f6dd655f6f9, type: 2}
   - {fileID: 11400000, guid: 3901f3213c6a8eb419e7dbc6e0cf797e, type: 2}
   targetResolution: {x: 640, y: 480}
-  minMagnitudeForMove: 40
+  minMagnitudeForMove: 20
   minLineSizeForCut: 20
   mode: 0
   maxAngleOffset: 12.5

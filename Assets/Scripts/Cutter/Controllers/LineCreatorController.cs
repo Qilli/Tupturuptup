@@ -153,6 +153,40 @@ public class LineCreatorController : BaseObject
         }
     }
 
+    private int getLinesForOneDirection(int startIndex)
+    {
+        Vector2 current = Vector2.zero;
+        Vector2 start = points[startIndex];
+        Vector2 end = points[startIndex+1];
+        Line.LineDirection lineDirection = getDirectionFor(end - start);
+        Debug.Log("Start Direction is: " + lineDirection);
+        int stopAt = points.Count - 1;
+
+        for (int a = startIndex+2; a < points.Count; ++a)
+        {
+            current = points[a] - points[a - 1];
+            bool res = getDirectionSmoothedFor(current, lineDirection);
+            if (!res)
+            {
+                //złamanie linii, tutaj przerywamy
+                stopAt = a;
+                break;
+            }
+        }
+
+        //tworzymy linie
+        for (int a = startIndex; a < stopAt - 1; ++a)
+        {
+            Line l = new Line();
+            l.start = usedCamera.ScreenToWorldPoint(points[a]);
+            l.end = usedCamera.ScreenToWorldPoint(points[a + 1]);
+            l.direction = lineDirection;
+            lines.Add(l);
+        }
+
+        return stopAt;
+    }
+
     private void createLinesFromAll()
     {
         /* Debug.Log("0.5 i 0.5 angle: " + Vector2.SignedAngle(Vector2.up, new Vector2(0.5f, 0.5f)));
@@ -164,14 +198,24 @@ public class LineCreatorController : BaseObject
          Debug.Log("-0.5 i 0.5 angle: " + Vector2.SignedAngle(Vector2.up, new Vector2(-0.5f, 0.5f)));*/
 
         if (points.Count <= 1) return;
+
+        int currentIndex = 0;
+        while(currentIndex+2<points.Count)
+        {
+            currentIndex = getLinesForOneDirection(currentIndex);
+        }
+
         //lecimy po wszystkich punktach
-        Vector2 start = points[0];
+     /*   Vector2 start = points[0];
         Vector2 end = points[1];
         Vector2 current = end;
 
         Line.LineDirection lineDirection = getDirectionFor(end - start);
         Debug.Log("Start Direction is: " + lineDirection);
         int stopAt =points.Count-1 ;
+
+
+
         for (int a = 2; a < points.Count; ++a)
         {
             current = points[a] - points[a-1];
@@ -192,7 +236,10 @@ public class LineCreatorController : BaseObject
             l.end = usedCamera.ScreenToWorldPoint(points[a+1]);
             l.direction = lineDirection;
             lines.Add(l);
-        }
+        }*/
+
+
+        //już wszystkie linie
    
         debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.TIME;
         debugLineDrawer.drawTimeLines(lines);
