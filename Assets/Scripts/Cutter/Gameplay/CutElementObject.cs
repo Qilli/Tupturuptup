@@ -15,13 +15,19 @@ public class CutElementObject : BaseObject
     [Header("Element")]
     public CutElement objDefinition;
 
-    [Header("Visual")]
-    public SpriteRenderer elemSprite;
+    private SpriteRenderer elemSprite;
+    private Rigidbody2D rigid;
 
     public override void init()
     {
         base.init();
-        changeElemState(ElementState.ACTIVE);
+        if (inited == false)
+        {
+            inited = true;
+            elemSprite = GetComponent<SpriteRenderer>();
+            rigid = GetComponent<Rigidbody2D>();
+            changeElemState(ElementState.ACTIVE);
+        }
     }
 
     public void tryCut(Line l)
@@ -40,6 +46,15 @@ public class CutElementObject : BaseObject
     {
         objDefinition = elem;
         changeElemState(ElementState.ACTIVE);
+    }
+
+    public void setInitParams(Vector2 iPos, Vector2 iForce,float iAngularForce,FruitsSpawnerSettings s)
+    {
+        transform.position = new Vector3(iPos.x, iPos.y, 0);
+
+        //dodajemy siłe dla uzyskania ruchu
+        rigid.AddForce(iForce, s.forceMode);
+        rigid.AddTorque(iAngularForce, s.forceMode);
     }
 
     public void changeElemState(ElementState state_)

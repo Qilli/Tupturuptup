@@ -27,6 +27,7 @@ public class InputPointsController : BaseObject
         Vector3 mPos = Mouse.current.position.ReadValue();
         //konwertujemy do docelowej rozdziałki
         Vector2 converted = linesController.creatorSettings.convert(mPos);
+        linesController.updateTrailPosition(mPos); 
 
         //dajemy tylko punkty z jakimś sensownym offsetem
         if (Vector2.Distance(converted, currentStart) > linesController.creatorSettings.minMagnitudeForMove || ignoreDistance==true)
@@ -56,7 +57,7 @@ public class InputPointsController : BaseObject
             currentStart = linesController.creatorSettings.convert(startPoint);
             //ustawiamy miejsce tapniecia jako pierwszy punkt   
             linesController.debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.CONSTANT;
-             linesController.addNewPoint(startPoint, linesController.creatorSettings.convert(startPoint));
+            linesController.addNewPoint(startPoint, linesController.creatorSettings.convert(startPoint));
            
         }
          else if(context.phase == InputActionPhase.Canceled)
