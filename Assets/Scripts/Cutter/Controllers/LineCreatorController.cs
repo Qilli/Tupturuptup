@@ -49,7 +49,7 @@ public class LineCreatorController : BaseObject
         }
     }
 
-    public void startRecord()
+    public void startRecord(Vector3 posStart)
     {
         points.Clear();
         pointsConverted.Clear();
@@ -59,7 +59,7 @@ public class LineCreatorController : BaseObject
         lineDrawer.setPointsForLine(linePoints);
         lineDrawer.showLines();
         debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.CONSTANT;
-        updateTrailPosition(Mouse.current.position.ReadValue());
+        updateTrailPosition(posStart);
         setTrail(true);
     }
 
@@ -277,7 +277,8 @@ public class LineCreatorController : BaseObject
     {
         foreach(Line l in lines)
         {
-            int res=Physics2D.LinecastNonAlloc(l.start, l.end, hits);
+         //   int res=Physics2D.LinecastNonAlloc(l.start, l.end, hits);
+            int res=Physics2D.CircleCastNonAlloc(l.start, creatorSettings.cutWidth, (l.end - l.start).normalized, hits);
             for(int a=0;a<res;++a)
             {
                 CutElemColliderInfo info= hits[a].collider.GetComponent<CutElemColliderInfo>();
