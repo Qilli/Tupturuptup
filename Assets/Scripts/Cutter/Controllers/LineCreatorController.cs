@@ -1,9 +1,10 @@
 ﻿//by Homa.K
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class LineCreatorController : BaseObject
 {
+    public TrailRenderer trail;
     public Camera usedCamera;
     public LineDrawerDebug debugLineDrawer;
     public CutLineDrawer lineDrawer;
@@ -20,6 +21,7 @@ public class LineCreatorController : BaseObject
     public override void init()
     {
         base.init();
+        setTrail(false);
     }
 
     public void addNewPoint(Vector2 point, Vector2 convertedPoint)
@@ -35,9 +37,19 @@ public class LineCreatorController : BaseObject
 
         linePoints.Add(world);
         lineDrawer.setPointsForLine(linePoints);
+
+        if(creatorSettings.mode == LineCreatorSettings.LineCreatorMode.PER_LINE && linePoints.Count>1)
+        {
+            getLinesForOneDirection(0);
+            if(lines.Count>0)
+            {
+                cut(lines);
+                lines.Clear();
+            }
+        }
     }
 
-    public void startRecord()
+    public void startRecord(Vector3 posStart)
     {
         points.Clear();
         pointsConverted.Clear();
@@ -47,12 +59,24 @@ public class LineCreatorController : BaseObject
         lineDrawer.setPointsForLine(linePoints);
         lineDrawer.showLines();
         debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.CONSTANT;
+        updateTrailPosition(posStart);
+        setTrail(true);
     }
+
+    public void updateTrailPosition(Vector3 mpos)
+    {
+        Vector3 target = usedCamera.ScreenToWorldPoint(mpos);
+        target.z = 0;
+        trail.transform.position = target; 
+    }
+
 
     public void endRecord()
     {
         debugLineDrawer.clear();
         lineDrawer.hideLines();
+        setTrail(false);
+        
         if (creatorSettings.mode == LineCreatorSettings.LineCreatorMode.WAIT_TILL_END)
         {
             createLinesFromAll();
@@ -110,7 +134,7 @@ public class LineCreatorController : BaseObject
     private Line.LineDirection getDirectionFor(Vector2 dir)
     {
         float angle = Vector2.SignedAngle(Vector2.up, dir);
-        Debug.Log("angle is: " + angle);
+        //Debug.Log("angle is: " + angle);
         if (angle < creatorSettings.maxAngleOffset && angle > -creatorSettings.maxAngleOffset)
         {
             //ver up
@@ -159,7 +183,7 @@ public class LineCreatorController : BaseObject
         Vector2 start = points[startIndex];
         Vector2 end = points[startIndex+1];
         Line.LineDirection lineDirection = getDirectionFor(end - start);
-        Debug.Log("Start Direction is: " + lineDirection);
+       // Debug.Log("Start Direction is: " + lineDirection);
         int stopAt = points.Count - 1;
 
         for (int a = startIndex+2; a < points.Count; ++a)
@@ -175,7 +199,7 @@ public class LineCreatorController : BaseObject
         }
 
         //tworzymy linie
-        for (int a = startIndex; a < stopAt - 1; ++a)
+        for (int a = startIndex; a < stopAt; ++a)
         {
             Line l = new Line();
             l.start = usedCamera.ScreenToWorldPoint(points[a]);
@@ -253,7 +277,8 @@ public class LineCreatorController : BaseObject
     {
         foreach(Line l in lines)
         {
-            int res=Physics2D.LinecastNonAlloc(l.start, l.end, hits);
+         //   int res=Physics2D.LinecastNonAlloc(l.start, l.end, hits);
+            int res=Physics2D.CircleCastNonAlloc(l.start, creatorSettings.cutWidth, (l.end - l.start).normalized, hits, (l.end - l.start).magnitude);
             for(int a=0;a<res;++a)
             {
                 CutElemColliderInfo info= hits[a].collider.GetComponent<CutElemColliderInfo>();
@@ -264,5 +289,15 @@ public class LineCreatorController : BaseObject
             }
         }
         
+    }
+
+    private void setTrail(bool enable)
+    {
+        if (enable)
+        {
+            trail.enabled = true;
+            trail.Clear();
+        }
+        else trail.enabled = false;
     }
 }

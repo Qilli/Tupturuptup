@@ -18,7 +18,7 @@ MonoBehaviour:
   targetResolution: {x: 640, y: 480}
   minMagnitudeForMove: 20
   minLineSizeForCut: 20
-  mode: 0
+  mode: 1
   maxAngleOffset: 12.5
   maxAngleSmoothOffset: 30
   randomColor: 1

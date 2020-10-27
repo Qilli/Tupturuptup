@@ -24,9 +24,10 @@ public class InputPointsController : BaseObject
     public void onMouseMove(Vector2 m,bool ignoreDistance=false)
     {
         Vector2 v = m;
-        Vector3 mPos = Mouse.current.position.ReadValue();
+        Vector3 mPos = v;// Mouse.current.position.ReadValue();
         //konwertujemy do docelowej rozdziałki
         Vector2 converted = linesController.creatorSettings.convert(mPos);
+        linesController.updateTrailPosition(mPos); 
 
         //dajemy tylko punkty z jakimś sensownym offsetem
         if (Vector2.Distance(converted, currentStart) > linesController.creatorSettings.minMagnitudeForMove || ignoreDistance==true)
@@ -51,12 +52,12 @@ public class InputPointsController : BaseObject
          if(context.phase == InputActionPhase.Performed)
         {
             tapStatus = TapStatus.ON;
-            linesController.startRecord();
             startPoint = Mouse.current.position.ReadValue();
+            linesController.startRecord(startPoint);
             currentStart = linesController.creatorSettings.convert(startPoint);
             //ustawiamy miejsce tapniecia jako pierwszy punkt   
             linesController.debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.CONSTANT;
-             linesController.addNewPoint(startPoint, linesController.creatorSettings.convert(startPoint));
+            linesController.addNewPoint(startPoint, linesController.creatorSettings.convert(startPoint));
            
         }
          else if(context.phase == InputActionPhase.Canceled)
@@ -64,6 +65,45 @@ public class InputPointsController : BaseObject
             onMouseMove(Vector2.zero,true);
             tapStatus = TapStatus.OFF;
             linesController.endRecord();
+        }
+    }
+
+    public void onTapStart(Vector3 posStart)
+    {
+        tapStatus = TapStatus.ON;
+        linesController.startRecord(posStart);
+        startPoint = posStart;
+        currentStart = linesController.creatorSettings.convert(startPoint);
+        //ustawiamy miejsce tapniecia jako pierwszy punkt   
+        linesController.debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.CONSTANT;
+        linesController.addNewPoint(startPoint, linesController.creatorSettings.convert(startPoint));
+    }
+    public void onTapOver()
+    {
+        onMouseMove(Vector2.zero, true);
+        tapStatus = TapStatus.OFF;
+        linesController.endRecord();
+    }
+
+    public override void onUpdate(float delta)
+    {
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == UnityEngine.TouchPhase.Began)
+            {
+                //  onMouseMove(Vector2.zero);
+                onTapStart(touch.position);
+
+            }
+            else if(touch.phase == UnityEngine.TouchPhase.Canceled)
+            {
+                onTapOver();
+            }
+        }
+
+        if (tapStatus == TapStatus.ON && Input.touches.Length>0)
+        {
+            onMouseMove(Input.touches[0].position);
         }
     }
 

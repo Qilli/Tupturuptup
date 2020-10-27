@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be75bcfeccf44f4788c900a3e2505a3, type: 3}
+  m_Name: FruitsSpawnSettings
+  m_EditorClassIdentifier: 
+  toSpawn:
+  - {fileID: 725970240192675993, guid: cf2a05fae12cbb74a84a746190870430, type: 3}
+  - {fileID: 4111028008899531858, guid: de4ad0e5dcbb3634db2bdcb263add7c8, type: 3}
+  spawnType: 5
+  forceMode: 0
+  nextSpawnMin: 0.5
+  nextSpawnMax: 1
+  forceOnSpawnMin_UP: {x: -20, y: 0, z: 0}
+  forceOnSpawnMax_UP: {x: 20, y: 0, z: 0}
+  forceOnSpawnMin_DOWN: {x: -100, y: 300, z: 0}
+  forceOnSpawnMax_DOWN: {x: 100, y: 360, z: 0}
+  forceOnSpawnMin_LEFT: {x: 200, y: 100, z: 0}
+  forceOnSpawnMax_LEFT: {x: 300, y: 150, z: 0}
+  forceOnSpawnMin_RIGHT: {x: -200, y: 100, z: 0}
+  forceOnSpawnMax_RIGHT: {x: -300, y: 150, z: 0}
+  minAngularForce: 10
+  maxAngularForce: 30
+  gravity: {x: 0, y: -3}
+  lifeTime: 10
