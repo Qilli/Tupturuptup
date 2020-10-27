@@ -278,7 +278,7 @@ public class LineCreatorController : BaseObject
         foreach(Line l in lines)
         {
          //   int res=Physics2D.LinecastNonAlloc(l.start, l.end, hits);
-            int res=Physics2D.CircleCastNonAlloc(l.start, creatorSettings.cutWidth, (l.end - l.start).normalized, hits);
+            int res=Physics2D.CircleCastNonAlloc(l.start, creatorSettings.cutWidth, (l.end - l.start).normalized, hits, (l.end - l.start).magnitude);
             for(int a=0;a<res;++a)
             {
                 CutElemColliderInfo info= hits[a].collider.GetComponent<CutElemColliderInfo>();
