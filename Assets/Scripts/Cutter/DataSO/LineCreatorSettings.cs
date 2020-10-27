@@ -24,6 +24,8 @@ public class LineCreatorSettings : ScriptableObject
     public float maxAngleOffset = 12.5f;
     [Tooltip("max offset kąta przy juz wybranym kierunku")]
     public float maxAngleSmoothOffset = 30.0f;
+    [Tooltip("grubość cięcią owoców")]
+    public float cutWidth = 0.1f;
     [Header("Debug Draw")]
     public bool randomColor = false;
     public Color lineColor = Color.red;

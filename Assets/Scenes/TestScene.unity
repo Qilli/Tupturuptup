@@ -2793,7 +2793,7 @@ MonoBehaviour:
     m_ActionId: 2611e036-dc44-4432-98ce-31e5dc8d748f
     m_ActionName: Player/DrawingStatus[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Touch
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1944680896}
@@ -3777,7 +3777,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.6
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
