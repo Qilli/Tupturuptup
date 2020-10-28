@@ -42,7 +42,7 @@ public class InputPointsController : BaseObject
     {
         if (tapStatus == TapStatus.ON)
         {
-            Vector2 v = context.ReadValue<Vector2>();
+            Vector2 v = Mouse.current.position.ReadValue(); // context.ReadValue<Vector2>();
             onMouseMove(v);
         }
     }
@@ -62,7 +62,7 @@ public class InputPointsController : BaseObject
         }
          else if(context.phase == InputActionPhase.Canceled)
         {
-            onMouseMove(Vector2.zero,true);
+         //   onMouseMove(Vector2.zero,true);
             tapStatus = TapStatus.OFF;
             linesController.endRecord();
         }
@@ -76,11 +76,12 @@ public class InputPointsController : BaseObject
         currentStart = linesController.creatorSettings.convert(startPoint);
         //ustawiamy miejsce tapniecia jako pierwszy punkt   
         linesController.debugLineDrawer.drawMode = LineDrawerDebug.DebugDrawMode.CONSTANT;
+        linesController.lines.Clear();
         linesController.addNewPoint(startPoint, linesController.creatorSettings.convert(startPoint));
     }
     public void onTapOver()
     {
-        onMouseMove(Vector2.zero, true);
+      //  onMouseMove(Vector2.zero, true);
         tapStatus = TapStatus.OFF;
         linesController.endRecord();
     }
