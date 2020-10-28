@@ -38,13 +38,18 @@ public class LineCreatorController : BaseObject
         linePoints.Add(world);
         lineDrawer.setPointsForLine(linePoints);
 
-        if(creatorSettings.mode == LineCreatorSettings.LineCreatorMode.PER_LINE && linePoints.Count>1)
+        if(creatorSettings.mode == LineCreatorSettings.LineCreatorMode.PER_LINE && points.Count>1)
         {
             getLinesForOneDirection(0);
             if(lines.Count>0)
             {
+            //    Debug.Log("a new cut: " + lines[0].start + " end: " +lines[0].end);
+                
                 cut(lines);
                 lines.Clear();
+                points.Clear();
+                linePoints.Clear();
+                pointsConverted.Clear();
             }
         }
     }
