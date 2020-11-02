@@ -60,24 +60,22 @@ public class SimpleCharacter : MonoBehaviour
             if (Keyboard.current.spaceKey.isPressed)
             {
                 moveDirection.y = jumpSpeed;
-                jumpForce = jumpSpeed;
+                gravityForce = jumpSpeed;
             }
          
-            characterController.Move(moveDirection * Time.deltaTime);
         }
-        else
+
+        //
+        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
+        // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
+        // as an acceleration (ms^-2)
+
+        if (gravityForce != 0)
         {
-            //
-            // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
-            // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-            // as an acceleration (ms^-2)
-           
             gravityForce -= gravity * Time.deltaTime;
-            gravityForce += jumpForce * Time.deltaTime;
-            jumpForce -= gravity * Time.deltaTime;
-            jumpForce = Mathf.Clamp(jumpForce, 0, 1000);
-            characterController.Move(new Vector3(0,gravityForce,0) * Time.deltaTime);
+            characterController.Move(new Vector3(0, gravityForce, 0) * Time.deltaTime);
         }
+        
 
         //rotation
         Vector2 current = -Mouse.current.delta.ReadValue();
