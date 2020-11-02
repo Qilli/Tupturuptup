@@ -65,12 +65,13 @@ public class SimpleCharacter : MonoBehaviour
          
         }
 
+
         //
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
 
-        if (gravityForce != 0)
+        if (gravityForce != 0 || !isGrounded())
         {
             gravityForce -= gravity * Time.deltaTime;
             characterController.Move(new Vector3(0, gravityForce, 0) * Time.deltaTime);
