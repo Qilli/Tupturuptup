@@ -26,6 +26,8 @@
 # Visual Studio cache directory
 .vs/
 
+# test zapisu
+
 # Gradle cache directory
 .gradle/
 
